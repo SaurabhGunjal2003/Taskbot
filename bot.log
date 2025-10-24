@@ -1,0 +1,40 @@
+2025-10-23 21:28:53,587 | WARNING | utils | API key/secret not found in environment - running in dry-run mode.
+2025-10-23 21:28:54,121 | INFO | limit_orders | Placing TEST limit order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'LIMIT', 'quantity': 0.01, 'price': '65000', 'timeInForce': 'GTC'}
+2025-10-23 21:28:54,122 | ERROR | limit_orders | Unexpected error placing limit order
+Traceback (most recent call last):
+  File "src/limit_orders.py", line 21, in place_limit_order
+    client.futures_create_order(**order_params)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 7782, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 128, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 76, in _request
+    kwargs = self._get_request_kwargs(method, signed, force_params, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 501, in _get_request_kwargs
+    kwargs["data"]["signature"] = self._generate_signature(kwargs["data"])
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 378, in _generate_signature
+    res = sig_func(query_string)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 362, in _hmac_signature
+    assert self.API_SECRET, "API Secret required for private endpoints"
+AssertionError: API Secret required for private endpoints
+2025-10-23 21:28:54,125 | ERROR | limit_orders | Failed to place limit order: API Secret required for private endpoints
+2025-10-23 21:55:56,210 | WARNING | utils | API key/secret not found in environment - running in dry-run mode.
+2025-10-23 21:55:56,694 | INFO | market_orders | Placing TEST market order: {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': 0.001}
+2025-10-23 21:55:56,694 | ERROR | market_orders | Unexpected error placing market order
+Traceback (most recent call last):
+  File "src/market_orders.py", line 23, in place_market_order
+    client.futures_create_order(**order_params)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 7782, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 128, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\client.py", line 76, in _request
+    kwargs = self._get_request_kwargs(method, signed, force_params, **kwargs)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 501, in _get_request_kwargs
+    kwargs["data"]["signature"] = self._generate_signature(kwargs["data"])
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 378, in _generate_signature
+    res = sig_func(query_string)
+  File "C:\Users\HP\AppData\Local\Programs\Python\Python38\lib\site-packages\binance\base_client.py", line 362, in _hmac_signature
+    assert self.API_SECRET, "API Secret required for private endpoints"
+AssertionError: API Secret required for private endpoints
+2025-10-23 21:55:56,701 | ERROR | market_orders | Failed to place market order: API Secret required for private endpoints
